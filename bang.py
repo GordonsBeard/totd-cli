@@ -2,7 +2,6 @@ from pynput import keyboard
 import pygame
 import glob
 import random
-import os
 
 pygame.mixer.init()
 
@@ -64,6 +63,7 @@ def on_press(key):
             reload_gun()
             return
         elif shots == 0:
+            print("RELOAD!! (press r)")
             pygame.mixer.Channel(0).play(pygame.mixer.Sound("sounds/reload_prompt.wav"))
             return
         key_pressed = key.char
@@ -76,7 +76,7 @@ def on_release(key):
     if key == keyboard.Key.esc:
         return False
     
-print("Welcome to zombie shooter typer!")
+print("Welcome to zombie shooter typer! ESC to quit, R to reload!")
 
 print()
 
